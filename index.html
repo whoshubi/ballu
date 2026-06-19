@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question for Baljeet</title>
+
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#1e1e1e,#3a3a3a);
+        font-family:Arial, sans-serif;
+        color:white;
+        text-align:center;
+    }
+
+    .box{
+        background:#222;
+        padding:40px;
+        border-radius:20px;
+        box-shadow:0 0 20px rgba(0,0,0,.5);
+        max-width:700px;
+    }
+
+    h1{
+        margin-bottom:30px;
+    }
+
+    button{
+        padding:12px 30px;
+        margin:10px;
+        border:none;
+        border-radius:10px;
+        font-size:18px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    #yesBtn{
+        background:#28a745;
+        color:white;
+    }
+
+    #noBtn{
+        background:#dc3545;
+        color:white;
+    }
+
+    button:hover{
+        transform:scale(1.1);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1 id="question">Baljeet (S/o Inder), are you gay? 🤔</h1>
+
+    <button id="yesBtn" onclick="sayYes()">Yes</button>
+    <button id="noBtn" onclick="nextQuestion()">No</button>
+</div>
+
+<script>
+const questions = [
+    "Baljeet (S/o Inder), are you gay? 🤔",
+    "Are you absolutely sure? 😏",
+    "Like... 100% sure? 🤨",
+    "What if I ask again? 😂",
+    "Did you think carefully before clicking No? 🤔",
+    "Maybe you misclicked? 😅",
+    "Be honest now... 😎",
+    "The investigation continues... 🕵️",
+    "This isn't looking good, Baljeet 👀",
+    "Final answer? 😏",
+    "Last chance before the internet decides for you 😂",
+    "Are you REALLY REALLY sure? 🤔"
+];
+
+let index = 0;
+
+function nextQuestion() {
+    index++;
+
+    if(index < questions.length){
+        document.getElementById("question").innerText = questions[index];
+
+        // Make Yes button bigger each time
+        const yesBtn = document.getElementById("yesBtn");
+        yesBtn.style.fontSize = (18 + index * 4) + "px";
+        yesBtn.style.padding = (12 + index * 2) + "px " + (30 + index * 4) + "px";
+    } else {
+        document.getElementById("question").innerText =
+            "The No button has officially run out of arguments. 😂";
+        document.getElementById("noBtn").style.display = "none";
+    }
+}
+
+function sayYes(){
+    document.body.innerHTML = `
+        <div style="text-align:center;color:white;">
+            <h1 style="font-size:60px;">🎉 Congratulations Baljeet! 🎉</h1>
+            <h2>You finally clicked YES 😂</h2>
+            <p>This page was a prank from your Father.</p>
+        </div>
+    `;
+}
+</script>
+
+</body>
+</html>
